@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import { Mutation } from 'react-apollo';
+import { createBlog } from './graphql/mutations';
+import gql from 'graphql-tag';
+import Form from './Form';
+import { listBlogs } from './graphql/queries';
+import Blogs from './Blogs';
+import GetClubData from './GetClubData';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{textAlign: "center"}}>
+        <Mutation mutation={gql(createBlog)}>
+            {mutate => (
+              <Form onSubmit={async input => {
+                console.log("name:",input);
+                const response = await mutate({ variables: { input }, refetchQueries: [{ query: gql(listBlogs) }] });
+                console.log("response",response);
+              }} />
+            )}
+        </Mutation>
+        {/* <Blogs /> */}
+        <GetClubData />
+      </div> 
     </div>
   );
 }

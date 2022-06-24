@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "mytestapp",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "D:\\DigiTrack Sports\\my-test-app\\amplify\\backend\\api\\mytestapp\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2023-05-25T10:17:39.538Z",
+      "keyDescription": "da2-ol4i7ehmfnhtlgaohwqj6pcrsu"
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": []
+  }
+}
