@@ -9,7 +9,7 @@ import { ApolloProvider } from 'react-apollo';
 import Amplify from '@aws-amplify/core';
 import config from './aws-exports';
 
-Amplify.configure(config);
+// Amplify.configure(config);
 
 const client = new ApolloClient({
   uri: "https://767feyv5bna7vk22bevaalgsqe.appsync-api.ap-south-1.amazonaws.com/graphql", 
